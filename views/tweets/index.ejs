@@ -2,45 +2,45 @@
     <div class = "container">
         <div class = "row">
             <div class = "col-12">
-                <h1 class="display-4 text-center">Twitter <i class="fab fa-twitter"></i></h1>
-                <!-- <% tweets.statuses.forEach((tweet) => { %>
-                    <p>
-                        <image src = "<%= tweet.user.profile_image_url %>" class = "img-thumbnail"></image> 
-                        <strong><%= tweet.user.name %></strong>
-                        <% if(tweet.user.location) { %>
-                            - <%= tweet.user.location %>
-                        <% } %>
-                    </p>
-                    <blockquote class="blockquote">
-                        <p><%= tweet.text %></p>
-                    </blockquote>                    
-                    <p>
-                        <em><% let date = tweet.created_at.split(" ");
-                               let newDate = `${date[0]} ${date[1]} ${date[2]} ${date[5]} ${date[3]}`; %>
-                            <%= newDate %>
-                        </em>
-                    </p>
-                    <hr>
-                    <br><br>
-                <% }) %> -->
+                <!-- heading -->
+                <h1 class="display-4 text-center">Twitter <a href = "/"><i class="fab fa-twitter "></a></i></h1>
+                <!-- search tweets -->
+                <form action = "/results" method = "GET" class = "form-inline d-flex-flex justify-content-end">
+                    <div class = "form-group">
+                        <label><%= searchterm %></label>
+                        <input type = "text" placeholder = "search" name = "search" class = "form-control">
+                        <button class = "btn btn-primary">Search</button>                        
+                    </div>   
+                </form>
+                <br>
+                <!-- display tweets -->
                 <% tweets.statuses.forEach((tweet) => { %>
                     <div class="card">
                         <div class="card-header">
-                            <image src = "<%= tweet.user.profile_image_url %>" class = "img-thumbnail"></image> 
+                            <!-- user image -->
+                            <image src = "<%= tweet.user.profile_image_url %>" class = "rounded"></image>
+                             <!-- user name  -->
                             <strong><%= tweet.user.name %></strong>
-                            <% if(tweet.user.location) { %>
-                                - <%= tweet.user.location %>
-                            <% } %>
+                            <!-- show user location if it exits -->
+                            <span>
+                                <% if(tweet.user.location) { %>
+                                    - <%= tweet.user.location %>
+                                <% } %>                                
+                            </span>
                         </div>
                         <div class="card-body">
                             <blockquote class="blockquote mb-0">
-                                <p><%= tweet.text %></p>
-                                <footer class="blockquote-footer"><cite title="Source Title"> 
-                                    <em><% let date = tweet.created_at.split(" ");
-                                        let newDate = `${date[0]} ${date[1]} ${date[2]} ${date[5]} ${date[3]}`; %>
-                                        on <%= newDate %>
-                                 </em>
-                                </cite></footer>
+                                <!-- show tweet -->
+                                <p><%- tweet.text %></p>
+                                <!-- show date and time of the tweet -->
+                                <footer class="blockquote-footer">
+                                    <cite> 
+                                        <em><% let date = tweet.created_at.split(" ");
+                                            let newDate = `${date[0]} ${date[1]} ${date[2]} ${date[5]} ${date[3]}`; %>
+                                            on <%= newDate %>
+                                        </em>
+                                    </cite>
+                                </footer>
                             </blockquote>
                         </div>
                     </div>
