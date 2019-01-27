@@ -1,0 +1,25 @@
+{
+  "name": "whatstrendingtoday",
+  "version": "1.0.0",
+  "description": "Whats trending today?",
+  "main": "app.js",
+  "scripts": {
+    "test" : "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DilanLivera/whatstreningtoday.git"
+  },
+  "author": "Dilan Livera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DilanLivera/whatstreningtoday/issues"
+  },
+  "homepage": "https://github.com/DilanLivera/whatstreningtoday#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "twitter": "^1.7.1"
+  }
+}

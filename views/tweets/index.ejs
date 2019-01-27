@@ -1,0 +1,55 @@
+<% include ../partials/header %>
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-12">
+                <h1 class="display-4 text-center">Twitter <i class="fab fa-twitter"></i></h1>
+                <!-- <% tweets.statuses.forEach((tweet) => { %>
+                    <p>
+                        <image src = "<%= tweet.user.profile_image_url %>" class = "img-thumbnail"></image> 
+                        <strong><%= tweet.user.name %></strong>
+                        <% if(tweet.user.location) { %>
+                            - <%= tweet.user.location %>
+                        <% } %>
+                    </p>
+                    <blockquote class="blockquote">
+                        <p><%= tweet.text %></p>
+                    </blockquote>                    
+                    <p>
+                        <em><% let date = tweet.created_at.split(" ");
+                               let newDate = `${date[0]} ${date[1]} ${date[2]} ${date[5]} ${date[3]}`; %>
+                            <%= newDate %>
+                        </em>
+                    </p>
+                    <hr>
+                    <br><br>
+                <% }) %> -->
+                <% tweets.statuses.forEach((tweet) => { %>
+                    <div class="card">
+                        <div class="card-header">
+                            <image src = "<%= tweet.user.profile_image_url %>" class = "img-thumbnail"></image> 
+                            <strong><%= tweet.user.name %></strong>
+                            <% if(tweet.user.location) { %>
+                                - <%= tweet.user.location %>
+                            <% } %>
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p><%= tweet.text %></p>
+                                <footer class="blockquote-footer"><cite title="Source Title"> 
+                                    <em><% let date = tweet.created_at.split(" ");
+                                        let newDate = `${date[0]} ${date[1]} ${date[2]} ${date[5]} ${date[3]}`; %>
+                                        on <%= newDate %>
+                                 </em>
+                                </cite></footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <br>                    
+                <% }) %>                                   
+            </div>
+        </div>
+    </div>
+
+
+
+<% include ../partials/footer %>
