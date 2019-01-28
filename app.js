@@ -17,25 +17,15 @@ var client = new Twitter({
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//get all the trending tweets
+//home route
 app.get("/", (req, res) => {
-    //search tweets which includes trending in it
-    const searchterm = "trending";
-    client.get('search/tweets', {q: searchterm}, function(error, tweets, twitterResponse) {
-        if(error) {
-          console.log("Oops, something went wrong!!!")  ;
-          console.log(error);      
-        } else {
-            //res.send(tweets);
-            res.render("tweets/index", { tweets: tweets, searchterm: searchterm });
-        }
-      });
+    res.redirect("/results");
 });
 
 //search
 app.get("/results", (req, res) => {
     //search tweets using user searched term
-    const searchterm = req.query.search;
+    const searchterm = (req.query.search) ? req.query.search : "trending";
     client.get('search/tweets', {q: searchterm}, function(error, tweets, twitterResponse) {
         if(error) {
           console.log("Oops, something went wrong!!!")  ;
