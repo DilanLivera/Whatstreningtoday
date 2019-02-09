@@ -7,10 +7,10 @@ const port    = 3000      ;
 
 //config twitter
 var client = new Twitter({
-    consumer_key: 'qZBfNlWAjxJNJhYTpnR6L5pAX',
-    consumer_secret: 'mORK2zeMbAfZoMqbefAIZ8mP2zqA90IANGCQI0FTJJ56eGSKCj',
-    access_token_key: '1088328190651559936-Xaqn1V1E9xVoydFQF1tBXGJkbFEnOu',
-    access_token_secret: 'SJMEdhy0JozDOZC0NdvJK17xRHB9LuK580ITeXtG1iQec'
+    consumer_key: '',
+    consumer_secret: '',
+    access_token_key: '',
+    access_token_secret: ''
   });
 
 //config app
