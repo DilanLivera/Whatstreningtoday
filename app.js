@@ -4,13 +4,14 @@ const express    = require("express"),
       bodyParser = require("body-parser");
 
 const port    = 3000      ;
+const Data    = require("./data");
 
 //config twitter
 var client = new Twitter({
-    consumer_key: '',
-    consumer_secret: '',
-    access_token_key: '',
-    access_token_secret: ''
+    consumer_key: Data.consumer_key,
+    consumer_secret: Data.consumer_secret,
+    access_token_key: Data.access_token_key,
+    access_token_secret: Data.access_token_secret    
   });
 
 //config app
